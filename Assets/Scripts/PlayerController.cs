@@ -1,4 +1,3 @@
-using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -13,7 +12,7 @@ namespace MidtermTuringTest
         [SerializeField] bool _invertMouse;
         [SerializeField] float _gravity = -9.8f;
         [SerializeField] float _jumpVelocity = 5f;
-        [SerializeField] float _sprintMultiplier = 2f;
+        [SerializeField] float _sprintMultiplier = 10f;
 
         [Header("Ground Checks")]
         [SerializeField] Transform _groundCheck;
@@ -43,29 +42,29 @@ namespace MidtermTuringTest
 
 
         #region InputCallBacks
-        public void OnMove(InputAction.CallbackContext context)
+        public void OnMove(InputValue value)
         {
-            _moveInput = context.ReadValue<Vector2>();
+            _moveInput = value.Get<Vector2>();
         }
-        public void OnLook(InputAction.CallbackContext context)
+        public void OnLook(InputValue value)
         {
-            _lookInput = context.ReadValue<Vector2>();
+            _lookInput = value.Get<Vector2>();
         }
-        public void OnSprint(InputAction.CallbackContext context)
+        public void OnSprint(InputValue value)
         {
-            //option 1 
-            _isSprinting = context.ReadValueAsButton();
+           _isSprinting = value.isPressed;
+
         }
-        public void OnJump(InputAction.CallbackContext context)
+        public void OnJump(InputValue value)
         {
             //option 2
-            if (context.performed)
+            if (value.isPressed)
                 _jumpPressed = true;
         }
 
-        public void OnShoot(InputAction.CallbackContext context)
+        public void OnShoot(InputValue value)
         {
-            if (context.performed)
+            if (value.isPressed)
                 _shootPressed = true;
         }
 
@@ -119,7 +118,9 @@ namespace MidtermTuringTest
             //moving forwards, back, left, and right
             //if sprinting, give the playe the multiplier. if it's not it's normal speed of 1f
 
-            float _moveMultiplier = _isSprinting ? _sprintMultiplier : 1f;
+                _moveMultiplier = _isSprinting ? _sprintMultiplier : 1f;
+           
+
             Vector3 move = transform.forward * _moveInput.y + transform.right * _moveInput.x; //y is the forward for the mouse
 
             _characterController.Move(move * _moveSpeed * _moveMultiplier * Time.deltaTime); //Character controller has a built in Move()
