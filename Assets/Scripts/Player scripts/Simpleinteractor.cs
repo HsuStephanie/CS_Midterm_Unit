@@ -23,7 +23,7 @@ namespace MidtermTuringTest
                 if (_iSelectable != null)
                 {
                     _iSelectable.OnHoverEnter();
-                     if (_input.activatePressed)
+                     if (PlayerInput.instance.activatePressed)
                 {
                     _iSelectable.OnSelect();
                 }

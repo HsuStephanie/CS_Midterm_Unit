@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,6 +9,7 @@ namespace MidtermTuringTest
     [DefaultExecutionOrder(-100)]
     public class PlayerInput : MonoBehaviour
     {
+        public static PlayerInput instance { get; set; }//Singleton pattern
         public float horizontalInput { get; private set; }
         public float verticalInput { get; private set; }
         public float mouseX { get; private set; }
@@ -31,6 +33,19 @@ namespace MidtermTuringTest
         [SerializeField] InputActionReference secondaryShootAction;
 
         private bool clear;
+
+        private void Awake()
+        {
+            if (instance == null)
+            {
+                instance = this;
+            }
+            else if (instance != null)
+            {
+                Destroy(this.gameObject);
+            }
+
+        }
 
         /// <summary>
         /// When player presses button on the keyboard/controller/etc. the game is listening for that input
@@ -87,7 +102,7 @@ namespace MidtermTuringTest
 
             sprintHeld = sprintAction.action.IsPressed();
             jumpPressed |= jumpAction.action.WasPressedThisFrame(); // | is "Or" operator
-            activatePressed |=activateAction.action.WasPressedThisFrame();
+            activatePressed |= activateAction.action.WasPressedThisFrame();
 
             primaryShootPressed |= primaryShootAction.action.WasPressedThisFrame();
             secondaryShootPressed |= secondaryShootAction.action.WasPressedThisFrame();
@@ -112,7 +127,7 @@ namespace MidtermTuringTest
 
             primaryShootPressed = false;
             secondaryShootPressed = false;
-            
+
             clear = false;
         }
 

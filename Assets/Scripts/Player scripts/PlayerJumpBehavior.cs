@@ -16,7 +16,7 @@ namespace MidtermTuringTest
 
        public override void Interact()
         {
-            if (_input.jumpPressed && _playerMovementBehavior.isGrounded)
+            if (PlayerInput.instance.jumpPressed && _playerMovementBehavior.isGrounded)
             {
                 _playerMovementBehavior.SetYVelocity(_jumpVelocity);
             }

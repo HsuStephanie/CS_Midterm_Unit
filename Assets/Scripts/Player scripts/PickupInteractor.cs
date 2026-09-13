@@ -1,6 +1,5 @@
-using System.Runtime.CompilerServices;
 using UnityEngine;
-using UnityEngine.PlayerLoop;
+
 
 namespace MidtermTuringTest
 {
@@ -20,7 +19,7 @@ namespace MidtermTuringTest
             Ray ray = cam.ScreenPointToRay(new Vector3(Screen.width/2, Screen.height/2, 0));
             if (Physics.Raycast(ray, out _raycastHit, pickupDistance, pickupLayer))
             {
-                if (_input.activatePressed && !_isPicked)
+                if (PlayerInput.instance.activatePressed && !_isPicked)
                 {
                     _iPickable = _raycastHit.transform.GetComponent<IPickAble>();
                     if (_iPickable == null)
@@ -33,7 +32,7 @@ namespace MidtermTuringTest
                 }
 
             }
-            if (_input.activatePressed && _isPicked && _iPickable != null)
+            if (PlayerInput.instance.activatePressed && _isPicked && _iPickable != null)
             {
                 _iPickable.OnDropped();
                 _isPicked = false;
