@@ -5,8 +5,7 @@ namespace MidtermTuringTest
     public class PooledObject : MonoBehaviour
     {
         //reference to object pool that created this object
-        public ObjectPool poolReference;
-
+        [SerializeField] ObjectPool poolReference;
 
         public void SetObjectPool(ObjectPool _pool)
         {

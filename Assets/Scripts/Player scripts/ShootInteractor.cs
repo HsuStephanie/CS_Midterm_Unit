@@ -9,12 +9,12 @@ namespace MidtermTuringTest
         [SerializeField] Input _inputType; //the enum from below
 
         [Header("Shoot")]
-        [SerializeField] Rigidbody _bulletPrefab;
+        // [SerializeField] Rigidbody _bulletPrefab;
         [SerializeField] float _shootVelocity;
         [SerializeField] Transform _shootPoint;
         [SerializeField] PlayerMovementBehavior _playerMovementBehavior;
         
-       [SerializeField] MeshRenderer gunRenderer;
+    //    [SerializeField] MeshRenderer gunRenderer;
         //private variable
         float _finalShootVelocity;
 
@@ -24,7 +24,7 @@ namespace MidtermTuringTest
            _inputType == Input.Secondary && PlayerInput.instance.secondaryShootPressed)
             {
                 Shoot();
-            }
+            } 
         }
         private void Shoot()
         {

@@ -21189,6 +21189,53 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5643175447205486470, guid: 762278bf8770f354eb5c6408cfa88001, type: 3}
   m_PrefabInstance: {fileID: 1316260605}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1323302128
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1323302130}
+  - component: {fileID: 1323302129}
+  m_Layer: 0
+  m_Name: ObjectPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1323302129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1323302128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c8ec4092d1ec472da52099190c03e58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MidtermTuringTest.ObjectPool
+  unusedPool: []
+  usedPool: []
+  objectToCreate: {fileID: 940949566384544557, guid: 96b28e4dec0f0ed4b8f48dafdeccd075, type: 3}
+--- !u!4 &1323302130
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1323302128}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -24.2384, y: 0.2, z: 1.09481}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1326883531
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22795,9 +22842,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3729abe6bbec4cfebf5166e339c8079, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MidtermTuringTest.ShootInteractor
-  _input: {fileID: 16391125}
   _inputType: 1
-  _bulletPrefab: {fileID: 3497804527579038417, guid: ccfe12e3d128f6648a61fe086ee9af77, type: 3}
   _shootVelocity: 20
   _shootPoint: {fileID: 1974799993}
   _playerMovementBehavior: {fileID: 1415176954}
@@ -22813,9 +22858,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3729abe6bbec4cfebf5166e339c8079, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MidtermTuringTest.ShootInteractor
-  _input: {fileID: 16391125}
   _inputType: 0
-  _bulletPrefab: {fileID: 3154489145113355460, guid: 96b28e4dec0f0ed4b8f48dafdeccd075, type: 3}
   _shootVelocity: 50
   _shootPoint: {fileID: 1974799993}
   _playerMovementBehavior: {fileID: 1415176954}
@@ -22831,7 +22874,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa6ff04147dd54ae89fa2d21dbe93cfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MidtermTuringTest.PlayerJumpBehavior
-  _input: {fileID: 16391125}
   _jumpVelocity: 10
 --- !u!114 &1415176959
 MonoBehaviour:
@@ -22845,7 +22887,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04dce743aed8746158a82949e56f0f90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MidtermTuringTest.Simpleinteractor
-  _input: {fileID: 16391125}
   cam: {fileID: 1874089306}
   interactionLayer:
     serializedVersion: 2
@@ -22863,7 +22904,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00964b402a6f44a9cbbcd78b1f68da1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MidtermTuringTest.PickupInteractor
-  _input: {fileID: 16391125}
   cam: {fileID: 1874089306}
   pickupLayer:
     serializedVersion: 2
@@ -36095,3 +36135,4 @@ SceneRoots:
   - {fileID: 1522056194}
   - {fileID: 1371005281}
   - {fileID: 346750888}
+  - {fileID: 1323302130}
