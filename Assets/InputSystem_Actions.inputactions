@@ -70,7 +70,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "SwitchProjectileGun",
+                    "name": "SwitchBulletGun",
                     "type": "Button",
                     "id": "46383338-44ac-4514-a8cc-4f6d5aadb0c5",
                     "expectedControlType": "",
@@ -79,9 +79,18 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "SwitchRaycastGun",
+                    "name": "SwitchRocketGun",
                     "type": "Button",
                     "id": "700e4cb1-1ad3-41f6-b8ba-505d392713ad",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Command",
+                    "type": "Button",
+                    "id": "f9425c8f-6d73-49b3-980a-a5f3c6944bf0",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -433,11 +442,11 @@
                 {
                     "name": "",
                     "id": "a5c48ac1-3dda-4a33-9944-aefbf2ff717f",
-                    "path": "<Keyboard>/3",
+                    "path": "<Keyboard>/1",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "SwitchProjectileGun",
+                    "action": "SwitchBulletGun",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -448,7 +457,18 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "SwitchRaycastGun",
+                    "action": "SwitchRocketGun",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0cda6593-a7aa-44b4-bf8f-636a3055b5f4",
+                    "path": "<Keyboard>/c",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Command",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

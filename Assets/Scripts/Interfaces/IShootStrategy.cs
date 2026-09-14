@@ -2,10 +2,10 @@ using UnityEngine;
 
 namespace MidtermTuringTest
 {
-    public interface IWeaponBehavior
+    public interface IShootStrategy
     {
        
-        void FireWeapon(Transform _inTransform);
+        void FireWeapon();
         
 
     }

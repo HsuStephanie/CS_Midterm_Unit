@@ -13,6 +13,8 @@ namespace MidtermTuringTest
         void Start()
         {
             _agent = GetComponent<NavMeshAgent>();
+            _targetPosition = GameObject.FindGameObjectWithTag("Player").transform;
+
 
         }
 

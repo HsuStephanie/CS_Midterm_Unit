@@ -15,7 +15,7 @@ namespace MidtermTuringTest
         {
             if (instance != null)
             {
-                Destroy(this.gameObject);
+                Destroy(gameObject);
             }
             else if (instance == null)
             {
@@ -24,25 +24,19 @@ namespace MidtermTuringTest
 
             Initialize();
         }
-        
+
         public void Initialize()
         {
-            for (int i = 0; i < 20; i ++)
+            for (int i = 0; i < 20; i++)
             {
                 AddNewObject();
             }
         }
 
-        // Update is called once per frame
-        void Update()
-        {
-        
-        }
 
-
-       public void AddNewObject()
+        public void AddNewObject()
         {
-            GameObject newObject = Instantiate(objectToCreate, transform.position,Quaternion.identity);
+            GameObject newObject = Instantiate(objectToCreate, transform.position, Quaternion.identity);
             newObject.GetComponent<PooledObject>().SetObjectPool(this);
 
             //Hide new object on creation
@@ -52,13 +46,17 @@ namespace MidtermTuringTest
 
         public PooledObject GetPooledObject()
         {
+
             if (unusedPool.Count > 0)
             {
                 //grab first available
                 usedPool.Add(usedPool[0]);
-                 unusedPool.RemoveAt(0);
-            usedPool[usedPool.Count - 1].gameObject.SetActive(true);
-            return usedPool[usedPool.Count -1];
+
+                //remove it from the available
+                unusedPool.RemoveAt(0);
+                //activate and return to caller
+                usedPool[usedPool.Count - 1].gameObject.SetActive(true);
+                return usedPool[usedPool.Count - 1];
             }
 
             else

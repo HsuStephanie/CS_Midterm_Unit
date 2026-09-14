@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -20,6 +19,10 @@ namespace MidtermTuringTest
         public bool activatePressed { get; private set; }
         public bool primaryShootPressed { get; private set; }
         public bool secondaryShootPressed { get; private set; }
+        public bool alpha1Pressed { get; private set; }
+        public bool alpha2Pressed { get; private set; }
+        public bool commandPressed {get; private set;}
+
 
 
         [Header("References")]
@@ -32,6 +35,13 @@ namespace MidtermTuringTest
 
         [SerializeField] InputActionReference secondaryShootAction;
 
+        //Strategy Pattern--changing guns
+        [SerializeField] InputActionReference alpha1Action;
+        [SerializeField] InputActionReference alpha2Action;
+
+        //Command Pattern
+        [SerializeField] InputActionReference commandAction;
+
         private bool clear;
 
         private void Awake()
@@ -42,7 +52,7 @@ namespace MidtermTuringTest
             }
             else if (instance != null)
             {
-                Destroy(this.gameObject);
+                Destroy(gameObject);
             }
 
         }
@@ -61,7 +71,14 @@ namespace MidtermTuringTest
 
             primaryShootAction.action.Enable();
             secondaryShootAction.action.Enable();
-        }
+
+            //enable shoot strategy
+            alpha1Action.action.Enable();
+            alpha2Action.action.Enable();
+
+             //command strategy
+            commandAction.action.Enable();
+        }   
 
         private void OnDisable()
         {
@@ -74,6 +91,13 @@ namespace MidtermTuringTest
 
             primaryShootAction.action.Disable();
             secondaryShootAction.action.Disable();
+
+            //disable shoot strategy
+            alpha1Action.action.Disable();
+            alpha2Action.action.Disable();
+
+            //command strategy
+            commandAction.action.Disable();
         }
 
         private void Update()
@@ -107,6 +131,14 @@ namespace MidtermTuringTest
             primaryShootPressed |= primaryShootAction.action.WasPressedThisFrame();
             secondaryShootPressed |= secondaryShootAction.action.WasPressedThisFrame();
 
+            //Strategy pattern. Checks if Alpha1 or Alpha2 were pressed
+            alpha1Pressed |= alpha1Action.action.WasPressedThisFrame();
+            alpha2Pressed |= alpha2Action.action.WasPressedThisFrame();
+
+            //Command Pattern
+            commandPressed |=commandAction.action.WasPressedThisFrame();
+
+
         }
 
 
@@ -127,6 +159,13 @@ namespace MidtermTuringTest
 
             primaryShootPressed = false;
             secondaryShootPressed = false;
+
+            //strategy pattern
+            alpha1Pressed = false;
+            alpha2Pressed = false;
+
+            //command pattern
+            commandPressed = false;
 
             clear = false;
         }
