@@ -1,17 +1,20 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace MidtermTuringTest
 {
     public class UIManager : MonoBehaviour
     {
-        public TextMeshProUGUI healthDisplay;
-        public GameObject gameOverPanel;
+        [SerializeField] TextMeshProUGUI healthDisplay;
+        [SerializeField] GameObject gameOverPanel;
+        [SerializeField] Image playerPointer;
 
-        public HealthScript healthScript;
+        [SerializeField] HealthScript healthScript;
 
         void Awake()
         {
+            //subscribed to health scripts events
             healthScript.OnHealthChanged += UpdateHealthDisplay;
             healthScript.OnDeath += ShowGameOver;
         }
@@ -27,6 +30,8 @@ namespace MidtermTuringTest
         public void ShowGameOver()
         {
             gameOverPanel.SetActive(true);
+            playerPointer.gameObject.SetActive(false);
+
         }
     }
 }

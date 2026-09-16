@@ -91,6 +91,37 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &6640430923502616098
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5090435248721973969}
+  m_Layer: 0
+  m_Name: SpawnReferencePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5090435248721973969
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6640430923502616098}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.61, z: -0.95}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4454950739842062320}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7654808384807023088
 GameObject:
   m_ObjectHideFlags: 0
@@ -104,9 +135,10 @@ GameObject:
   - component: {fileID: 679643247832703205}
   - component: {fileID: 1356419164109610471}
   - component: {fileID: 8558262626221129782}
+  - component: {fileID: 1317227653807152938}
   m_Layer: 0
   m_Name: Robot Bad
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -125,6 +157,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4413253043531833282}
+  - {fileID: 5090435248721973969}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!195 &7695686024783341079
@@ -177,11 +210,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7654808384807023088}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 412b50d6f6c6f405e9323d6f59c94a85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MidtermTuringTest.EnemyController
+  healthScript: {fileID: 1317227653807152938}
 --- !u!114 &8558262626221129782
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -195,3 +229,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MidtermTuringTest.Enemy
   _targetPosition: {fileID: 0}
+--- !u!114 &1317227653807152938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7654808384807023088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2febcb82a060b4a5f8859f70001a947a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MidtermTuringTest.HealthScript
+  currentHealth: 100

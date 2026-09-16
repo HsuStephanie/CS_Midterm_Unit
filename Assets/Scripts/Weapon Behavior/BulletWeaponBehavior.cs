@@ -17,13 +17,18 @@ namespace MidtermTuringTest
 
         public void FireWeapon()
         {
-                        Debug.Log("Firing bullet");
             //Get a bullet from the pool
             PooledObject pooledBullet = ObjectPool.instance.GetPooledObject();
+            
             if (pooledBullet != null)
             {
+                //Activate the pooled bullet
                 pooledBullet.gameObject.SetActive(true);
 
+                //get pooled object projectile script and initialize
+                ProjectileScript projectileScript = pooledBullet.GetComponent<ProjectileScript>();
+                projectileScript.Initialize(shootInteractor.gameObject.tag);
+                
                 //Get rigidbody and set position of the bullet
                 Rigidbody bullet = pooledBullet.GetComponent<Rigidbody>();
                 bullet.transform.position = shootPoint.transform.position;

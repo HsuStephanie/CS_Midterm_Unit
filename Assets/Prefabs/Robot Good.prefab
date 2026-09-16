@@ -101,9 +101,6 @@ GameObject:
   m_Component:
   - component: {fileID: 994312275265355548}
   - component: {fileID: 9123528966104722640}
-  - component: {fileID: 4748338613549493177}
-  - component: {fileID: 8153980062831587091}
-  - component: {fileID: 8220581838515012602}
   - component: {fileID: 520724921783097072}
   m_Layer: 0
   m_Name: Robot Good
@@ -150,44 +147,6 @@ NavMeshAgent:
   m_BaseOffset: -0.09
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &4748338613549493177
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3064851397045223955}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2756f98b7c05466fb17e1f2a28855d1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MidtermTuringTest.Enemy
-  _targetPosition: {fileID: 0}
---- !u!114 &8153980062831587091
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3064851397045223955}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 412b50d6f6c6f405e9323d6f59c94a85, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MidtermTuringTest.EnemyController
---- !u!114 &8220581838515012602
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3064851397045223955}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2febcb82a060b4a5f8859f70001a947a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MidtermTuringTest.HealthScript
-  currentHealth: 20
 --- !u!65 &520724921783097072
 BoxCollider:
   m_ObjectHideFlags: 0

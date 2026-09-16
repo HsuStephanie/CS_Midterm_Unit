@@ -14,32 +14,32 @@ namespace MidtermTuringTest
         void Start()
         {
 
-           
-            OnHealthChanged?.Invoke(currentHealth);
-            
+            bool isSubscribed = OnHealthChanged != null;
+            if (isSubscribed)
+            {
+                OnHealthChanged?.Invoke(currentHealth);
 
-        }
+            }
 
-        // Update is called once per frame
-        void Update()
-        {
-        
+
         }
 
         public void TakeDamage(float amount)
         {
             currentHealth -= amount;
+            //asking is there anything subscribed to the event OnHealthChanged. If null, will not invoke, else will invoke currentHealth
             OnHealthChanged?.Invoke(currentHealth);
-            if (currentHealth<= 0f)
+
+            if (currentHealth <= 0f)
             {
-                 Die();
+                Die();
             }
-                
+
         }
 
         public void Die()
         {
-           OnDeath.Invoke();
+            OnDeath?.Invoke(); 
             Debug.Log("You ddead");
             Destroy(gameObject);
         }

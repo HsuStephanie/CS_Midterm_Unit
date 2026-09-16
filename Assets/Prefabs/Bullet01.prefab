@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5324208013093484824}
   - component: {fileID: 3154489145113355460}
   - component: {fileID: 4310558694880156712}
+  - component: {fileID: -4900366035069991535}
   m_Layer: 0
   m_Name: Bullet01
   m_TagString: Untagged
@@ -98,6 +99,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MidtermTuringTest.PooledObject
   poolReference: {fileID: 0}
+--- !u!114 &-4900366035069991535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 940949566384544557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef4e820ee14d546f8870058d2bc6980e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MidtermTuringTest.ProjectileScript
 --- !u!1 &8264920411532292913
 GameObject:
   m_ObjectHideFlags: 0

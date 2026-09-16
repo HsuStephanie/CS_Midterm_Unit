@@ -50,7 +50,7 @@ namespace MidtermTuringTest
             if (unusedPool.Count > 0)
             {
                 //grab first available
-                usedPool.Add(usedPool[0]);
+                usedPool.Add(unusedPool[0]);
 
                 //remove it from the available
                 unusedPool.RemoveAt(0);

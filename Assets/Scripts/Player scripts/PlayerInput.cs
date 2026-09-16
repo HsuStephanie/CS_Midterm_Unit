@@ -21,7 +21,9 @@ namespace MidtermTuringTest
         public bool secondaryShootPressed { get; private set; }
         public bool alpha1Pressed { get; private set; }
         public bool alpha2Pressed { get; private set; }
-        public bool commandPressed {get; private set;}
+        public bool commandPressed { get; private set; }
+
+        public bool pausePressed { get; private set; }
 
 
 
@@ -41,6 +43,7 @@ namespace MidtermTuringTest
 
         //Command Pattern
         [SerializeField] InputActionReference commandAction;
+        [SerializeField] InputActionReference pauseAction;
 
         private bool clear;
 
@@ -76,9 +79,12 @@ namespace MidtermTuringTest
             alpha1Action.action.Enable();
             alpha2Action.action.Enable();
 
-             //command strategy
+            //command strategy
             commandAction.action.Enable();
-        }   
+
+            //pause game
+            pauseAction.action.Enable();
+        }
 
         private void OnDisable()
         {
@@ -98,6 +104,9 @@ namespace MidtermTuringTest
 
             //command strategy
             commandAction.action.Disable();
+
+            //Pause game
+            pauseAction.action.Disable();
         }
 
         private void Update()
@@ -115,6 +124,12 @@ namespace MidtermTuringTest
 
         private void ProcessInputs()
         {
+            //pause game
+            pausePressed |= pauseAction.action.WasPressedThisFrame();
+
+            if (GameManager.instance.currentGameState != GameManager.GameState.GamePlaying)
+                return;
+
             Vector2 move = moveAction.action.ReadValue<Vector2>();
             Vector2 look = lookAction.action.ReadValue<Vector2>();
 
@@ -136,8 +151,8 @@ namespace MidtermTuringTest
             alpha2Pressed |= alpha2Action.action.WasPressedThisFrame();
 
             //Command Pattern
-            commandPressed |=commandAction.action.WasPressedThisFrame();
-
+            commandPressed |= commandAction.action.WasPressedThisFrame();
+            
 
         }
 
@@ -166,6 +181,8 @@ namespace MidtermTuringTest
 
             //command pattern
             commandPressed = false;
+            //pause game
+            pausePressed = false;
 
             clear = false;
         }

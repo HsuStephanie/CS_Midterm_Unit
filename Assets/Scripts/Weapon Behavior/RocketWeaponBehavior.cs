@@ -22,8 +22,13 @@ namespace MidtermTuringTest
             PooledObject pooledRocket = ObjectPool.instance.GetPooledObject();
             if (pooledRocket != null)
             {
+                //Activate pooled rocket
                 pooledRocket.gameObject.SetActive(true);
-
+                
+                 //get pooled object projectile script and initialize
+                ProjectileScript projectileScript = pooledRocket.GetComponent<ProjectileScript>();
+                projectileScript.Initialize(shootInteractor.gameObject.tag);
+             
                 //Get rigidbody and set position of the rocket
                 Rigidbody rocket = pooledRocket.GetComponent<Rigidbody>();
                 rocket.transform.position = shootPoint.transform.position;
