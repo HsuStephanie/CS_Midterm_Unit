@@ -445,7 +445,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MidtermTuringTest.ShootInteractor
   _inputType: 0
-  _shootVelocity: 50
+  _shootVelocity: 20
   _shootPoint: {fileID: 3763352048313872487}
   _playerMovementBehavior: {fileID: 2606620728610737485}
   gunRenderer: {fileID: 2265416191451931797}
@@ -814,6 +814,7 @@ MonoBehaviour:
   alpha1Action: {fileID: -3195964071543318269, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   alpha2Action: {fileID: -1255105966359556510, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   commandAction: {fileID: 2138517584070784924, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  pauseAction: {fileID: 0}
 --- !u!1001 &626551908664588305
 PrefabInstance:
   m_ObjectHideFlags: 0

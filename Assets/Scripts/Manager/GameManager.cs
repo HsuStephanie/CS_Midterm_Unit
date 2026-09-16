@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEditor;
 using UnityEngine;
 
@@ -24,7 +25,7 @@ namespace MidtermTuringTest
             GameEnd,
             LevelStart,
             LevelEnd,
-            Paused,
+            GamePaused,
             GamePlaying
         }
         
@@ -55,12 +56,17 @@ namespace MidtermTuringTest
         {
             if (PlayerInput.instance.pausePressed)
             {
-                ChangeGameState(GameState.Paused);
+                if (currentGameState == GameState.GamePaused)
+                {
+                    ChangeGameState(GameState.GamePlaying);
+                }
+
+                else if (currentGameState == GameState.GamePlaying)
+                {
+                    ChangeGameState(GameState.GamePaused);
+                }
             }
-            if (currentGameState == GameState.Paused && PlayerInput.instance.pausePressed)
-            {
-                ChangeGameState(GameState.GamePlaying);
-            }
+          
 
         }
 
@@ -90,7 +96,7 @@ namespace MidtermTuringTest
                 case GameState.LevelEnd:
                     OnLevelEnd();
                     break;
-                case GameState.Paused:
+                case GameState.GamePaused:
                     OnGamePaused();
                     break;
                 case GameState.GamePlaying:
@@ -134,8 +140,9 @@ namespace MidtermTuringTest
             Debug.Log("Level start State");
             //could handles start cinematics. tutorials, instructions
             //starting cut scenes
+        
 
-           ChangeGameState(GameState.GamePlaying);
+            StartCoroutine(ChangeStateDelay(GameState.GamePlaying,2f));
 
         }
         void OnLevelEnd()
@@ -157,6 +164,12 @@ namespace MidtermTuringTest
         {
             Debug.Log("Game playing");
             Time.timeScale = 1f;
+        }
+
+        private IEnumerator ChangeStateDelay(GameState newState, float delayTime)
+        {
+            yield return new WaitForSeconds(delayTime);
+
         }
 
     }

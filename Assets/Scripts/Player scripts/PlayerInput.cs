@@ -124,7 +124,7 @@ namespace MidtermTuringTest
 
         private void ProcessInputs()
         {
-            //pause game
+            //Pause game input can still be processed if GameState != GamePlaying
             pausePressed |= pauseAction.action.WasPressedThisFrame();
 
             if (GameManager.instance.currentGameState != GameManager.GameState.GamePlaying)
