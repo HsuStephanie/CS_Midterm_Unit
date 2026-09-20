@@ -65,7 +65,7 @@ namespace MidtermTuringTest
 
         public override void OnStateExit()
         {
-            // _controller.agent.isStopped = false;
+            _controller.agent.isStopped = false;
         }
     }
 }

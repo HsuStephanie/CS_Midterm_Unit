@@ -32,6 +32,7 @@ namespace MidtermTuringTest
                 }
 
             }
+            
 
            
             //Remove bullet if it damages something

@@ -179,6 +179,7 @@ GameObject:
   - component: {fileID: 1249550347494054441}
   - component: {fileID: 2629694736697983710}
   - component: {fileID: 269680195073704697}
+  - component: {fileID: 5770572860092492772}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -495,6 +496,18 @@ MonoBehaviour:
   navMeshAgent: {fileID: 0}
   pointerPrefab: {fileID: 2088817740556239380, guid: 78f4cc19a65d1bf40a4e707ea1bfcd52, type: 3}
   cam: {fileID: 6871842453091102553}
+--- !u!114 &5770572860092492772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 419876642538874186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: befc5d6eeb4034bc9b097b5a1dea39c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MidtermTuringTest.PlayerCollisionBehavior
 --- !u!1 &749518310688818080
 GameObject:
   m_ObjectHideFlags: 0
@@ -814,7 +827,7 @@ MonoBehaviour:
   alpha1Action: {fileID: -3195964071543318269, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   alpha2Action: {fileID: -1255105966359556510, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   commandAction: {fileID: 2138517584070784924, guid: 052faaac586de48259a63d0c4782560b, type: 3}
-  pauseAction: {fileID: 0}
+  pauseAction: {fileID: 7297462412528143008, guid: 052faaac586de48259a63d0c4782560b, type: 3}
 --- !u!1001 &626551908664588305
 PrefabInstance:
   m_ObjectHideFlags: 0

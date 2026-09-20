@@ -9,12 +9,6 @@ namespace MidtermTuringTest
             
         }
 
-        void OnTriggerEnter(Collider other)
-        {
-            if (other.gameObject.CompareTag("LevelTrigger"))
-            {
-                GameManager.instance.ChangeGameState(GameManager.GameState.LevelStart);
-            }
-        }
+       
     }
 }

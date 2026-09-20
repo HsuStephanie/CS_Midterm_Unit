@@ -21,6 +21,7 @@ namespace MidtermTuringTest
             {
                 if (PlayerInput.instance.activatePressed && !_isPicked)
                 {
+                    Debug.Log("Picking up object");
                     _iPickable = _raycastHit.transform.GetComponent<IPickAble>();
                     if (_iPickable == null)
                     return;
@@ -34,6 +35,7 @@ namespace MidtermTuringTest
             }
             if (PlayerInput.instance.activatePressed && _isPicked && _iPickable != null)
             {
+                Debug.Log("Dropping object");
                 _iPickable.OnDropped();
                 _isPicked = false;
             }

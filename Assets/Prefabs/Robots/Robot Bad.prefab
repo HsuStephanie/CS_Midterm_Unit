@@ -134,7 +134,6 @@ GameObject:
   - component: {fileID: 7695686024783341079}
   - component: {fileID: 679643247832703205}
   - component: {fileID: 1356419164109610471}
-  - component: {fileID: 8558262626221129782}
   - component: {fileID: 1317227653807152938}
   m_Layer: 0
   m_Name: Robot Bad
@@ -215,20 +214,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 412b50d6f6c6f405e9323d6f59c94a85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MidtermTuringTest.EnemyController
+  agent: {fileID: 0}
+  moveSpeed: 3
+  attackRange: 3
+  detectionRange: 10
+  canAttack: 1
+  target: {fileID: 0}
+  projectilePrefab: {fileID: 0}
+  projectileSpawnReference: {fileID: 6640430923502616098}
   healthScript: {fileID: 1317227653807152938}
---- !u!114 &8558262626221129782
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7654808384807023088}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2756f98b7c05466fb17e1f2a28855d1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MidtermTuringTest.Enemy
-  _targetPosition: {fileID: 0}
 --- !u!114 &1317227653807152938
 MonoBehaviour:
   m_ObjectHideFlags: 0
