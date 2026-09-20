@@ -1,6 +1,6 @@
 using System.Collections;
-using UnityEditor;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 namespace MidtermTuringTest
 {
@@ -28,10 +28,13 @@ namespace MidtermTuringTest
             GamePaused,
             GamePlaying
         }
-        
+
         public GameState currentGameState = GameState.GameIntro;
-        
-        
+
+        [Header("Cameras")]
+        [SerializeField] Camera playerCamera = null;
+        [SerializeField] Camera cinematicCamera = null;
+
         //singleton pattern
         public static GameManager instance = null;
 
@@ -42,7 +45,7 @@ namespace MidtermTuringTest
                 Destroy(gameObject);
             }
             else
-            instance = this;
+                instance = this;
 
         }
         private void Start()
@@ -66,7 +69,7 @@ namespace MidtermTuringTest
                     ChangeGameState(GameState.GamePaused);
                 }
             }
-          
+
 
         }
 
@@ -108,6 +111,7 @@ namespace MidtermTuringTest
         void OnGameIntro()
         {
             Debug.Log("Game Intro State");
+            StartCoroutine(ChangeStateDelay(GameState.GameStart, 2f));
 
         }
 
@@ -124,7 +128,7 @@ namespace MidtermTuringTest
         {
             Debug.Log("Game End State");
             //calculating final scores
-            //determing if player won, lost
+            //determing if player won, lost 
             //figuring out what scene to go to next
 
         }
@@ -140,9 +144,10 @@ namespace MidtermTuringTest
             Debug.Log("Level start State");
             //could handles start cinematics. tutorials, instructions
             //starting cut scenes
-        
+            playerCamera.enabled = false;
+            cinematicCamera.enabled = true;
 
-            StartCoroutine(ChangeStateDelay(GameState.GamePlaying,2f));
+            StartCoroutine(ChangeStateDelay(GameState.GamePlaying, 2f));
 
         }
         void OnLevelEnd()
@@ -157,18 +162,23 @@ namespace MidtermTuringTest
 
         {
             Debug.Log("Game paused State");
-            Time.timeScale = 0f;
-            
+            // Time.timeScale = 0f;
+
         }
         void OnGamePlaying()
         {
             Debug.Log("Game playing");
             Time.timeScale = 1f;
+            playerCamera.enabled = true;
+            cinematicCamera.enabled = false;
         }
 
+
+        //this is a placeholder
         private IEnumerator ChangeStateDelay(GameState newState, float delayTime)
         {
             yield return new WaitForSeconds(delayTime);
+            ChangeGameState(newState);
 
         }
 
