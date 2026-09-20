@@ -26,13 +26,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 292972364064910483}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0.7071068, w: 0}
+  m_LocalPosition: {x: 0, y: -0.7200001, z: 0}
   m_LocalScale: {x: 100, y: 99.999985, z: 99.999985}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4454950739842062320}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 180}
 --- !u!33 &4140151928725330295
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -152,7 +152,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.57574, y: 0.57574, z: 0.57574}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4413253043531833282}
@@ -200,8 +200,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.3891935, y: 3.6636872, z: 1.4665856}
-  m_Center: {x: 0.007479191, y: 1.3318439, z: 0.1377151}
+  m_Size: {x: 1.3891935, y: 3.0904887, z: 1.4665856}
+  m_Center: {x: 0.007479206, y: 1.0452445, z: 0.13771512}
 --- !u!114 &1356419164109610471
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -214,13 +214,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 412b50d6f6c6f405e9323d6f59c94a85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MidtermTuringTest.EnemyController
-  agent: {fileID: 0}
+  agent: {fileID: 7695686024783341079}
   moveSpeed: 3
   attackRange: 3
   detectionRange: 10
   canAttack: 1
   target: {fileID: 0}
-  projectilePrefab: {fileID: 0}
   projectileSpawnReference: {fileID: 6640430923502616098}
   healthScript: {fileID: 1317227653807152938}
 --- !u!114 &1317227653807152938

@@ -525,6 +525,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 59ac4cb82e07c46a49ea71e0c53bf73d, type: 3}
+--- !u!23 &3643613241236916775 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 3582916432974579489, guid: 59ac4cb82e07c46a49ea71e0c53bf73d, type: 3}
+  m_PrefabInstance: {fileID: 227895169793002758}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5338506639855752298 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5278090060458137964, guid: 59ac4cb82e07c46a49ea71e0c53bf73d, type: 3}
@@ -592,6 +597,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 502506426297958518, guid: 21b743d24ccf541e09a32b9e4fa2e161, type: 3}
   m_PrefabInstance: {fileID: 1000998911276644882}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7860728224363136465 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6985832446033870787, guid: 21b743d24ccf541e09a32b9e4fa2e161, type: 3}
+  m_PrefabInstance: {fileID: 1000998911276644882}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 484012ce0fc6e4741b2e0665a30b57af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MidtermTuringTest.BlockDetection
 --- !u!1001 &1108664349446716304
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -732,6 +748,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 502506426297958518, guid: 21b743d24ccf541e09a32b9e4fa2e161, type: 3}
   m_PrefabInstance: {fileID: 1286799787789209865}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8154057456654642890 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6985832446033870787, guid: 21b743d24ccf541e09a32b9e4fa2e161, type: 3}
+  m_PrefabInstance: {fileID: 1286799787789209865}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 484012ce0fc6e4741b2e0665a30b57af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MidtermTuringTest.BlockDetection
 --- !u!1001 &1377425903870554493
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -794,6 +821,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 502506426297958518, guid: 21b743d24ccf541e09a32b9e4fa2e161, type: 3}
   m_PrefabInstance: {fileID: 1377425903870554493}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8353948709517463230 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6985832446033870787, guid: 21b743d24ccf541e09a32b9e4fa2e161, type: 3}
+  m_PrefabInstance: {fileID: 1377425903870554493}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 484012ce0fc6e4741b2e0665a30b57af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MidtermTuringTest.BlockDetection
 --- !u!1001 &1414337262860282014
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -851,6 +889,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 59ac4cb82e07c46a49ea71e0c53bf73d, type: 3}
+--- !u!23 &2457188295814066111 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 3582916432974579489, guid: 59ac4cb82e07c46a49ea71e0c53bf73d, type: 3}
+  m_PrefabInstance: {fileID: 1414337262860282014}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6529998240069333490 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5278090060458137964, guid: 59ac4cb82e07c46a49ea71e0c53bf73d, type: 3}
@@ -1407,6 +1450,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 59ac4cb82e07c46a49ea71e0c53bf73d, type: 3}
+--- !u!23 &2131115505402372190 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 3582916432974579489, guid: 59ac4cb82e07c46a49ea71e0c53bf73d, type: 3}
+  m_PrefabInstance: {fileID: 3182406397627852671}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7283911813713460755 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5278090060458137964, guid: 59ac4cb82e07c46a49ea71e0c53bf73d, type: 3}
@@ -1945,6 +1993,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 59ac4cb82e07c46a49ea71e0c53bf73d, type: 3}
+--- !u!23 &1108169611246438882 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 3582916432974579489, guid: 59ac4cb82e07c46a49ea71e0c53bf73d, type: 3}
+  m_PrefabInstance: {fileID: 4528389082889719491}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8640044915642242991 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5278090060458137964, guid: 59ac4cb82e07c46a49ea71e0c53bf73d, type: 3}
@@ -2864,8 +2917,44 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2840149997402032294, guid: 84121cbee379645ac851c907d20b10c9, type: 3}
       propertyPath: UnlockLights.Array.size
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 2840149997402032294, guid: 84121cbee379645ac851c907d20b10c9, type: 3}
+      propertyPath: blockDetectors.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2840149997402032294, guid: 84121cbee379645ac851c907d20b10c9, type: 3}
+      propertyPath: 'UnlockLights.Array.data[0]'
+      value: 
+      objectReference: {fileID: 3643613241236916775}
+    - target: {fileID: 2840149997402032294, guid: 84121cbee379645ac851c907d20b10c9, type: 3}
+      propertyPath: 'UnlockLights.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1108169611246438882}
+    - target: {fileID: 2840149997402032294, guid: 84121cbee379645ac851c907d20b10c9, type: 3}
+      propertyPath: 'UnlockLights.Array.data[2]'
+      value: 
+      objectReference: {fileID: 2131115505402372190}
+    - target: {fileID: 2840149997402032294, guid: 84121cbee379645ac851c907d20b10c9, type: 3}
+      propertyPath: 'UnlockLights.Array.data[3]'
+      value: 
+      objectReference: {fileID: 2457188295814066111}
+    - target: {fileID: 2840149997402032294, guid: 84121cbee379645ac851c907d20b10c9, type: 3}
+      propertyPath: 'blockDetectors.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8353948709517463230}
+    - target: {fileID: 2840149997402032294, guid: 84121cbee379645ac851c907d20b10c9, type: 3}
+      propertyPath: 'blockDetectors.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2285559369846928357}
+    - target: {fileID: 2840149997402032294, guid: 84121cbee379645ac851c907d20b10c9, type: 3}
+      propertyPath: 'blockDetectors.Array.data[2]'
+      value: 
+      objectReference: {fileID: 8154057456654642890}
+    - target: {fileID: 2840149997402032294, guid: 84121cbee379645ac851c907d20b10c9, type: 3}
+      propertyPath: 'blockDetectors.Array.data[3]'
+      value: 
+      objectReference: {fileID: 7860728224363136465}
     - target: {fileID: 5912717431313609307, guid: 84121cbee379645ac851c907d20b10c9, type: 3}
       propertyPath: m_Name
       value: Door_withhinge (1)
@@ -2937,6 +3026,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21b743d24ccf541e09a32b9e4fa2e161, type: 3}
+--- !u!114 &2285559369846928357 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6985832446033870787, guid: 21b743d24ccf541e09a32b9e4fa2e161, type: 3}
+  m_PrefabInstance: {fileID: 9170834879912709158}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 484012ce0fc6e4741b2e0665a30b57af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MidtermTuringTest.BlockDetection
 --- !u!4 &8771916227206630480 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 502506426297958518, guid: 21b743d24ccf541e09a32b9e4fa2e161, type: 3}

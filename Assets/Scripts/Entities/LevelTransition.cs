@@ -24,8 +24,6 @@ namespace MidtermTuringTest
 
                 Debug.Log("Loading: " + LevelManager.instance.levels[levelToLoad].name);
                 
-
-
                 gameObject.SetActive(false);
             }
         }
