@@ -28,8 +28,8 @@ Transform:
   m_GameObject: {fileID: 879899143323962284}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -2.5, y: 0.43, z: -0.517}
-  m_LocalScale: {x: 1.5, y: 3, z: 0.2}
+  m_LocalPosition: {x: 0, y: 0.8872, z: -0.655}
+  m_LocalScale: {x: 1.35195, y: 2.0856655, z: 0.2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1915436472128949261}
@@ -140,8 +140,8 @@ Transform:
   m_GameObject: {fileID: 1251596197303988710}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -2.5, y: 0.43000007, z: 0.97}
-  m_LocalScale: {x: 1.5, y: 3, z: 0.2}
+  m_LocalPosition: {x: 0, y: 0.8872, z: 0.655}
+  m_LocalScale: {x: 1.35195, y: 2.0856655, z: 0.2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1915436472128949261}
@@ -252,7 +252,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 24.5783, y: 1.28, z: -0.20594}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 2.2456, z: 2.5946}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6822345332117347218}
@@ -293,5 +293,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ee4f4407b57248ceadb918600b70b63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MidtermTuringTest.DoorOpenClose
-  blockDetectors: []
-  UnlockLights: []
+  blockDetectors:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  UnlockLights:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}

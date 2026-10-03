@@ -16,11 +16,14 @@ namespace MidtermTuringTest
         IPickAble _iPickable;
         public override void Interact()
         {
+
             Ray ray = cam.ScreenPointToRay(new Vector3(Screen.width/2, Screen.height/2, 0));
              Debug.DrawRay(ray.origin, ray.direction * pickupDistance, Color.red);
+           
 
             if (Physics.Raycast(ray, out _raycastHit, pickupDistance, pickupLayer))
             {
+                
                 if (PlayerInput.instance.activatePressed && !_isPicked)
                 {
                     Debug.Log("Picking up object");
@@ -33,6 +36,7 @@ namespace MidtermTuringTest
                     return;
 
                 }
+               
 
             }
             if (PlayerInput.instance.activatePressed && _isPicked && _iPickable != null)

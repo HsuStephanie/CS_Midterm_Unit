@@ -24,6 +24,7 @@ namespace MidtermTuringTest
         {
             
             healthScript.OnDeath += OnDeathResponse;
+            target = GameObject.FindGameObjectWithTag("Player");
            
           
         }

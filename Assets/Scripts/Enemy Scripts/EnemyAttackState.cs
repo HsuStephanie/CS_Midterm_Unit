@@ -52,7 +52,7 @@ namespace MidtermTuringTest
                     bullet.linearVelocity = _controller.transform.forward * 10f;
 
                     //Recycle bullet into pool
-                    pooledBullet.DestroyWithTime(2f);
+                    ObjectPool.instance.DestroyPooledObject(pooledBullet, 4f);
 
                 }
 

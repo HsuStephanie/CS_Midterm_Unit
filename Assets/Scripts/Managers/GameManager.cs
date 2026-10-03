@@ -1,6 +1,7 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Rendering;
+using UnityEngine.Playables;
 
 namespace MidtermTuringTest
 {
@@ -33,7 +34,16 @@ namespace MidtermTuringTest
 
         [Header("Cameras")]
         [SerializeField] Camera playerCamera = null;
-        [SerializeField] Camera cinematicCamera = null;
+        // [SerializeField] PlayableDirector level1Director;
+
+        [Header("UI Panels")]
+        [SerializeField] GameObject gameOverPanel;
+        [SerializeField] GameObject pausePanel;
+
+        [Header("Level Managers")]
+        public List<LevelManager>levels = new List<LevelManager>();
+        public LevelManager currentLevel;
+
 
         //singleton pattern
         public static GameManager instance = null;
@@ -57,24 +67,27 @@ namespace MidtermTuringTest
 
         void Update()
         {
+
             if (PlayerInput.instance.pausePressed)
             {
                 if (currentGameState == GameState.GamePaused)
                 {
                     ChangeGameState(GameState.GamePlaying);
+                    pausePanel.SetActive(false);
+
                 }
 
                 else if (currentGameState == GameState.GamePlaying)
                 {
                     ChangeGameState(GameState.GamePaused);
+                    pausePanel.SetActive(true);
                 }
             }
 
 
         }
 
-        //change between game states
-
+        //Change between game states
         public void ChangeGameState(GameState newState)
         {
             currentGameState = newState;
@@ -108,6 +121,24 @@ namespace MidtermTuringTest
             }
         }
 
+        //Signals for cinematic start/End. These are like events
+        public void CinematicStart()
+        {
+            Debug.Log("Cinematic started");
+            // level1Director.Play();
+            ChangeGameState(GameState.LevelStart);
+
+        }
+        public void CinematicEnd()
+        {
+
+            Debug.Log("Cinematic ended");
+            playerCamera.transform.localPosition = Vector3.zero;
+            ChangeGameState(GameState.GamePlaying);
+
+
+        }
+
         void OnGameIntro()
         {
             Debug.Log("Game Intro State");
@@ -123,6 +154,7 @@ namespace MidtermTuringTest
 
             //loading screens
             //load the object poolers for this level
+            AudioManager.instance.PlayClip();
         }
         void OnGameEnd()
         {
@@ -134,7 +166,9 @@ namespace MidtermTuringTest
         }
         void OnGameOver()
         {
-            Debug.Log("GameOVer State");
+            Debug.Log("GameOver State");
+            gameOverPanel.SetActive(true);
+            Time.timeScale = 0f;
             //handles logic when player dies
 
         }
@@ -143,16 +177,15 @@ namespace MidtermTuringTest
         {
             Debug.Log("Level start State");
             //could handles start cinematics. tutorials, instructions
-            //starting cut scenes
-            playerCamera.enabled = false;
-            cinematicCamera.enabled = true;
+            currentLevel.LevelStart();
+            //starting cut scene
 
-            StartCoroutine(ChangeStateDelay(GameState.GamePlaying, 2f));
 
         }
         void OnLevelEnd()
         {
             Debug.Log("Level end State");
+            currentLevel.LevelEnd();
             //when the player finishes a level
 
         }
@@ -162,7 +195,8 @@ namespace MidtermTuringTest
 
         {
             Debug.Log("Game paused State");
-            // Time.timeScale = 0f;
+            Time.timeScale = 0f;
+
 
         }
         void OnGamePlaying()
@@ -170,7 +204,6 @@ namespace MidtermTuringTest
             Debug.Log("Game playing");
             Time.timeScale = 1f;
             playerCamera.enabled = true;
-            cinematicCamera.enabled = false;
         }
 
 

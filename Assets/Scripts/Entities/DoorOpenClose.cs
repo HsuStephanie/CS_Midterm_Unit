@@ -11,6 +11,8 @@ namespace MidtermTuringTest
         Animator _animator;
         bool[] unlocks;
 
+        bool doorOpen = false;
+
         private void Awake()
         {
             _animator = GetComponent<Animator>();
@@ -33,50 +35,48 @@ namespace MidtermTuringTest
                 Debug.LogWarning("Door has no block detectors");
             }
 
+            //ensures that door does not automatically play when game starts
+            _animator.Play("OpenClose", 0, 0f);
+            _animator.SetFloat("Speed", 0f);
+
+        }
+
+        void SetUnlocked(BlockDetection blockDetection, bool unlocked)
+        {
+            int index = Array.IndexOf(blockDetectors, blockDetection);
+            if (index<0) return;
+            unlocks[index] = unlocked;
+            UnlockLights[index].material.SetColor("_EmissionColor",(unlocked?Color.green : Color.red) * 20f);
+           
+            UpdateDoor();
+        
+        }
+
+        public void UpdateDoor()
+        {
+            bool ShouldBeOpen = Array.TrueForAll(unlocks, u => u);
+
+            if (ShouldBeOpen == doorOpen) return;
+            doorOpen = ShouldBeOpen;
+
+            float t = Mathf.Clamp01(_animator.GetCurrentAnimatorStateInfo(0).normalizedTime);
+            _animator.Play("OpenClose", 0, t);
+            _animator.SetFloat("Speed", doorOpen?1f: -1f);
         }
 
 
         public void UnlockDoor(BlockDetection blockDetection)
         {
-            unlocks[Array.IndexOf(blockDetectors, blockDetection)] = true;
-            UnlockLights[Array.IndexOf(blockDetectors, blockDetection)].material.SetColor("_EmissionColor", Color.green * 20f);
-            AnimateDoor();
+            SetUnlocked(blockDetection, true);
+            
         }
 
         public void LockDoor(BlockDetection blockDetection)
         {
-            unlocks[Array.IndexOf(blockDetectors, blockDetection)] = false;
-            UnlockLights[Array.IndexOf(blockDetectors, blockDetection)].material.SetColor("_EmissionColor", Color.red * 20f);
-            AnimateDoor();
+            SetUnlocked(blockDetection, false);
+          
         }
 
-        void AnimateDoor()
-        {
-            bool doorOpen = true;
-
-            foreach (bool unlock in unlocks)
-            {
-                if (!unlock)
-                {
-                    doorOpen = false;
-                }
-            }
-
-            if (doorOpen)
-            {
-                _animator.Play("OpenClose", 0, Mathf.Clamp(_animator.GetCurrentAnimatorStateInfo(0).normalizedTime, 0f, 1f));
-                _animator.SetFloat("Speed", 1f);
-            }
-            else
-            {
-                _animator.Play("OpenClose", 0, Mathf.Clamp(_animator.GetCurrentAnimatorStateInfo(0).normalizedTime, 0f, 1f));
-                _animator.SetFloat("Speed", -1f);
-            }
-        }
-
-
-
-
-
+    
     }
 }

@@ -8,7 +8,7 @@ namespace MidtermTuringTest
         [SerializeField] string openTag = "Player";
         
         [SerializeField] Animator _animator;
-        float _delayTime = 3f;
+         [SerializeField]float _delayTime = 3f;
         
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Start()
@@ -28,6 +28,12 @@ namespace MidtermTuringTest
         {
             if (other.CompareTag(openTag))
             {
+                //For doors that are to stay open, set delay time to a negative number, else they will close after period of time
+                if (_delayTime <=0)
+                {
+                    return;
+                }
+                
                 StartCoroutine(TimedDelay());
             }
         }

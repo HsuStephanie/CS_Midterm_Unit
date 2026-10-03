@@ -4,7 +4,7 @@ namespace MidtermTuringTest
 {
     public class ProjectileScript : MonoBehaviour
     {
-        [Header ("Deal damage")]
+        [Header("Deal damage")]
         [SerializeField] float damageToPlayer = 5f;
         [SerializeField] float damageToEnemy = 20f;
         //Tag on current gameobject
@@ -21,26 +21,24 @@ namespace MidtermTuringTest
             if (!collision.gameObject.CompareTag(ownershipTag))
             {
                 HealthScript healthScript = collision.gameObject.GetComponent<HealthScript>();
-                if (healthScript !=null)
+                if (healthScript != null)
                 {
                     if (collision.gameObject.CompareTag("Player"))
                     {
                         healthScript.TakeDamage(damageToPlayer);
                     }
                     else
-                    healthScript.TakeDamage(damageToEnemy);
+                        healthScript.TakeDamage(damageToEnemy);
                 }
 
             }
-            
 
-           
+
+
             //Remove bullet if it damages something
             PooledObject pooledObject = GetComponent<PooledObject>();
             if (pooledObject != null)
-            {
-                pooledObject.ResetObject();
-            }
+                pooledObject.Destroy();   // return to pool now
             else
                 Destroy(gameObject);
         }

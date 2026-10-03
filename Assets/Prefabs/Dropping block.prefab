@@ -14,7 +14,8 @@ GameObject:
   - component: {fileID: 1304817270965630729}
   - component: {fileID: 3680242311876323294}
   - component: {fileID: 13694239887686348}
-  m_Layer: 7
+  - component: {fileID: 74750443557998731}
+  m_Layer: 9
   m_Name: Dropping block
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -123,7 +124,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4132019130632708472}
   serializedVersion: 5
-  m_Mass: 1
+  m_Mass: 5
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -154,6 +155,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bbd3e5d4a4bc4b3ea991b6a3ab38681, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MidtermTuringTest.PIckupCube
+--- !u!114 &74750443557998731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4132019130632708472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 506b70e2d3be3478cabfd61a9d656d4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MidtermTuringTest.ChangeColor
+  currentColor: {fileID: 2100000, guid: 77fe52bf911f0fd4fa62cc8c34e21c26, type: 2}
+  interactingColor: {fileID: 2100000, guid: 02bb94b295e5e4001946a94170562700, type: 2}
 --- !u!1001 &8381693178486619771
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -162,9 +177,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2793378383071679586}
     m_Modifications:
+    - target: {fileID: 1281035902060884153, guid: 06a91b0497523764183586f4c474fc6e, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 2005340364725751420, guid: 06a91b0497523764183586f4c474fc6e, type: 3}
       propertyPath: m_Name
       value: Pressure Cube
+      objectReference: {fileID: 0}
+    - target: {fileID: 2005340364725751420, guid: 06a91b0497523764183586f4c474fc6e, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4496632807637155785, guid: 06a91b0497523764183586f4c474fc6e, type: 3}
       propertyPath: m_LocalPosition.x

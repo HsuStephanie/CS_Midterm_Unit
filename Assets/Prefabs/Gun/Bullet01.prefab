@@ -84,7 +84,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &4310558694880156712
 MonoBehaviour:
@@ -98,7 +98,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: baca0ad79ea38497d86904291d07a930, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MidtermTuringTest.PooledObject
-  poolReference: {fileID: 0}
 --- !u!114 &-4900366035069991535
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111,6 +110,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef4e820ee14d546f8870058d2bc6980e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MidtermTuringTest.ProjectileScript
+  damageToPlayer: 5
+  damageToEnemy: 20
 --- !u!1 &8264920411532292913
 GameObject:
   m_ObjectHideFlags: 0

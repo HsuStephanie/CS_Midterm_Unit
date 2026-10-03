@@ -1,19 +1,32 @@
+
 using UnityEngine;
 
 namespace MidtermTuringTest
 {
     public class AudioManager : MonoBehaviour
     {
-        // Start is called once before the first execution of Update after the MonoBehaviour is created
-        void Start()
+       [SerializeField] AudioClip introClip;
+       [SerializeField] AudioSource audioSource;
+
+        public static AudioManager instance;
+
+
+
+        void Awake()
         {
-        
+            if (instance !=null)
+            {
+                Destroy(gameObject);
+            }
+            else 
+            instance = this;
+
+            
         }
 
-        // Update is called once per frame
-        void Update()
+        public void PlayClip()
         {
-        
+           audioSource.PlayOneShot(introClip);
         }
     }
 }

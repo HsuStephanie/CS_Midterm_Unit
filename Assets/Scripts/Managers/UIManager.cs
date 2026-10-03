@@ -18,13 +18,13 @@ namespace MidtermTuringTest
             healthScript.OnHealthChanged += UpdateHealthDisplay;
             healthScript.OnDeath += ShowGameOver;
         }
-     
+
 
         public void UpdateHealthDisplay(float currentHealth)
         {
+            currentHealth = healthScript.currentHealth;
             healthDisplay.text = "Health: " + currentHealth.ToString("F0");
 
-        
         }
 
         public void ShowGameOver()

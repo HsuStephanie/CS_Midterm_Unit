@@ -1,5 +1,5 @@
-using System;
 using UnityEngine;
+using UnityEngine.Playables;
 
 
 
@@ -7,24 +7,26 @@ namespace MidtermTuringTest
 {
     public class LevelTransition : MonoBehaviour
     {
-        [SerializeField] int levelToLoad;
-        [SerializeField] int levelToUnload;
-        [SerializeField] bool isTutorial;
+        [SerializeField] string currentLevelName;
+
+        public PlayableDirector director;
+        public LevelManager manager;
 
         void OnTriggerEnter(Collider other)
         {
-            if (other.gameObject.CompareTag("Player"))
-            {   
-                Debug.Log("Player has entered level transition");
-                GameManager.instance.ChangeGameState(GameManager.GameState.LevelStart);
-                //do any other behavior needed for level transition
-                LevelManager.instance.LoadLevel(levelToLoad);
-                if (!isTutorial)
-                LevelManager.instance.UnloadLevel(levelToUnload);
 
-                Debug.Log("Loading: " + LevelManager.instance.levels[levelToLoad].name);
-                
+            if (other.gameObject.CompareTag("Player"))
+            {
+                //Assign currentLevel in GameManager to the LevelManager attached to the level
+                GameManager.instance.currentLevel = manager;
+
+                //play level cinematic. handles changing game state
+                director.Play();
+
+                Debug.Log("Loading Level: " + currentLevelName);
                 gameObject.SetActive(false);
+
+
             }
         }
     }

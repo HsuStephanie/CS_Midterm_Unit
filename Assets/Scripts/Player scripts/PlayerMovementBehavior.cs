@@ -22,39 +22,46 @@ namespace MidtermTuringTest
         CharacterController _characterController;
         Vector3 _playerVelocity;
 
-        public bool isGrounded {get; private set;}
+        public bool isGrounded { get; private set; }
 
-        
+
 
         void Start()
         {
-            _characterController= GetComponent<CharacterController>();
+            _characterController = GetComponent<CharacterController>();
 
         }
 
 
         void Update()
         {
-  
+
             GroundCheck();
             MovePlayer();
         }
 
         private void GroundCheck()
         {
-            isGrounded = Physics.CheckSphere(_groundCheck.position, _groundCheckDistance); //creates a sphere to check for the ground
+            // isGrounded = Physics.CheckSphere(_groundCheck.position, _groundCheckDistance); //creates a sphere to check for the ground
+
+            isGrounded = Physics.CheckSphere(
+                _groundCheck.position,
+                _groundCheckDistance,
+                _groundMask,
+                QueryTriggerInteraction.Ignore);
+
         }
         private void MovePlayer()
         {
-             //Make player sprint
-            _moveMultipler = _playerInput.sprintHeld? _sprintMultiplier : 1f;
+            //Make player sprint
+            _moveMultipler = _playerInput.sprintHeld ? _sprintMultiplier : 1f;
             //movement
             Vector3 move = transform.forward * _playerInput.verticalInput + transform.right * _playerInput.horizontalInput;
 
             _characterController.Move(move * _moveSpeed * _moveMultipler * Time.deltaTime);
 
             //Keep player grounded
-            if (isGrounded && _playerVelocity.y <0)
+            if (isGrounded && _playerVelocity.y < 0)
             {
                 _playerVelocity.y = -2f;
             }
@@ -62,7 +69,7 @@ namespace MidtermTuringTest
             _playerVelocity.y += _gravity * Time.deltaTime;
 
             //Vertical movement (telling controller it can move with player's velocity)
-            _characterController.Move(_playerVelocity * Time.deltaTime);            
+            _characterController.Move(_playerVelocity * Time.deltaTime);
         }
         public void SetYVelocity(float Value)
         {
@@ -70,7 +77,7 @@ namespace MidtermTuringTest
         }
         public float GetForwardSpeed()
         {
-            return _playerInput.verticalInput* _moveSpeed * _moveMultipler;
+            return _playerInput.verticalInput * _moveSpeed * _moveMultipler;
         }
     }
 }

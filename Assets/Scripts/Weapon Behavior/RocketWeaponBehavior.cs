@@ -6,6 +6,8 @@ namespace MidtermTuringTest
     {
         ShootInteractor shootInteractor;
         Transform shootPoint;
+        [Header("Object pool reference")]
+        [SerializeField] ObjectPool objectPool;
 
         public RocketWeaponBehavior(ShootInteractor _shootInteractor)
         {
@@ -38,9 +40,7 @@ namespace MidtermTuringTest
                 rocket.linearVelocity = shootPoint.forward * shootInteractor.GetShootVelocity();
 
                 //Recycle bullet into pool
-                pooledRocket.DestroyWithTime(2f);
-
-
+                ObjectPool.instance.DestroyPooledObject(pooledRocket, 4f);
 
                 Debug.Log("Firing Rocket");
             }

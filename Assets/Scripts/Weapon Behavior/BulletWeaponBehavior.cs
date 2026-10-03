@@ -22,9 +22,7 @@ namespace MidtermTuringTest
             
             if (pooledBullet != null)
             {
-                //Activate the pooled bullet
-                pooledBullet.gameObject.SetActive(true);
-
+                
                 //get pooled object projectile script and initialize
                 ProjectileScript projectileScript = pooledBullet.GetComponent<ProjectileScript>();
                 projectileScript.Initialize(shootInteractor.gameObject.tag);
@@ -38,7 +36,7 @@ namespace MidtermTuringTest
                 bullet.linearVelocity = shootPoint.forward * shootInteractor.GetShootVelocity();
 
                 //Recycle bullet into pool
-                pooledBullet.DestroyWithTime(2f);
+                ObjectPool.instance.DestroyPooledObject(pooledBullet, 4f);
 
             }
 
