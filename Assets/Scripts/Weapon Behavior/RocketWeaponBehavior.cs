@@ -6,6 +6,8 @@ namespace MidtermTuringTest
     {
         ShootInteractor shootInteractor;
         Transform shootPoint;
+
+        int audioClipIndex = 4;
         [Header("Object pool reference")]
         [SerializeField] ObjectPool objectPool;
 
@@ -22,6 +24,7 @@ namespace MidtermTuringTest
 
             //Get a rocket from the pool
             PooledObject pooledRocket = ObjectPool.instance.GetPooledObject();
+            AudioManager.instance.PlaySFX(audioClipIndex);
             if (pooledRocket != null)
             {
                 //Activate pooled rocket

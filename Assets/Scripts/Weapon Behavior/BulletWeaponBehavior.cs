@@ -6,6 +6,8 @@ namespace MidtermTuringTest
     {
         ShootInteractor shootInteractor;
         Transform shootPoint;
+        
+        int audioClipIndex = 4;
 
         public BulletWeaponBehavior(ShootInteractor _shootInteractor)
         {
@@ -19,6 +21,7 @@ namespace MidtermTuringTest
         {
             //Get a bullet from the pool
             PooledObject pooledBullet = ObjectPool.instance.GetPooledObject();
+            AudioManager.instance.PlaySFX(audioClipIndex);
             
             if (pooledBullet != null)
             {

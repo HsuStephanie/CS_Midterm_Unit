@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -10,6 +11,10 @@ namespace MidtermTuringTest
        public float attackRange = 3f;
       public float detectionRange = 10f;
       public bool canAttack = true;
+      public float coolDown = 2f;
+      [HideInInspector] public float nextAttackTime;
+
+      int audioClipIndex = 3;
 
       public GameObject target = null;
         //Combat
@@ -18,6 +23,8 @@ namespace MidtermTuringTest
 
         //Enemy states
         EnemyState currentState = null;
+        public bool isIdle;
+       
 
         public HealthScript healthScript;
         void Awake()
@@ -41,6 +48,8 @@ namespace MidtermTuringTest
             if (currentState != null)
             {
                 currentState.OnStateUpdate();
+           
+                
             }
         }
 
@@ -56,7 +65,14 @@ namespace MidtermTuringTest
         public void OnDeathResponse()
         {
             Destroy(gameObject);
+            
         }
+
+        public void PlayAudio()
+        {
+            AudioManager.instance.PlaySFX(audioClipIndex);
+        }
+       
 
     }
 }

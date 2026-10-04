@@ -13,6 +13,7 @@ namespace MidtermTuringTest
         {
              Debug .Log("Enemy has entered Idle  State");
              _controller.agent.isStopped = true;
+             _controller.isIdle = true;
         }
         public override void OnStateUpdate()
         {
@@ -38,6 +39,7 @@ namespace MidtermTuringTest
         public override void OnStateExit()
         {
              _controller.agent.isStopped = false;
+             _controller.isIdle = false;
         }
     }
 }

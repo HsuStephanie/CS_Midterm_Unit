@@ -10,6 +10,7 @@ namespace MidtermTuringTest
         void OnTriggerEnter(Collider other)
         {
             finalLevelText.gameObject.SetActive(true);
+            gameObject.SetActive(false);
         }
 
     }

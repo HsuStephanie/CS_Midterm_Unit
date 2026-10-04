@@ -6,6 +6,7 @@ namespace MidtermTuringTest
     public class HealthScript : MonoBehaviour
     {
         public float currentHealth = 100f;
+        public float maxHealth = 100f;
 
         public event Action<float> OnHealthChanged;
         public event Action OnDeath;
@@ -34,14 +35,31 @@ namespace MidtermTuringTest
             {
                 Die();
             }
+            ChangeHealth();
 
         }
 
+        public void Heal(float amount)
+
+        {
+            currentHealth += amount;
+            OnHealthChanged?.Invoke(currentHealth);
+            ChangeHealth();
+        }
         public void Die()
         {
             OnDeath?.Invoke(); 
             Debug.Log("You ddead");
-            Destroy(gameObject);
+            gameObject.SetActive(false);
+        }
+
+        public void ChangeHealth()
+        {
+            
+            if (gameObject.CompareTag("Player"))
+            {
+                AudioManager.instance.PlayerChangeHealth();
+            }
         }
     }
 }

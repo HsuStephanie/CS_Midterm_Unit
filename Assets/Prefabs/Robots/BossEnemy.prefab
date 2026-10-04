@@ -107,6 +107,7 @@ GameObject:
   - component: {fileID: 4326169658936568340}
   - component: {fileID: 7546528326513603280}
   - component: {fileID: 2776838796695153991}
+  - component: {fileID: 6402294470491223008}
   m_Layer: 0
   m_Name: BossEnemy
   m_TagString: Untagged
@@ -170,8 +171,11 @@ MonoBehaviour:
   attackRange: 3
   detectionRange: 10
   canAttack: 1
+  coolDown: 2
+  nextAttackTime: 0
   target: {fileID: 0}
   projectileSpawnReference: {fileID: 1437022888521562545}
+  isIdle: 0
   healthScript: {fileID: -7981780800652819203}
 --- !u!114 &-7981780800652819203
 MonoBehaviour:
@@ -186,6 +190,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MidtermTuringTest.HealthScript
   currentHealth: 1000
+  maxHealth: 100
 --- !u!65 &6141298003474310378
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -297,6 +302,18 @@ CapsuleCollider:
   m_Height: 1.1841503
   m_Direction: 2
   m_Center: {x: 0, y: 1.7622919, z: -0.13303488}
+--- !u!114 &6402294470491223008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6587672820954958075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e741ab3059ec45579ea3c14ab7fab91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MidtermTuringTest.FinalBoss
 --- !u!1001 &2751656654415608620
 PrefabInstance:
   m_ObjectHideFlags: 0

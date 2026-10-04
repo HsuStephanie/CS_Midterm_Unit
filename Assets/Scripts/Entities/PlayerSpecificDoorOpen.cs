@@ -10,6 +10,7 @@ namespace MidtermTuringTest
         static readonly int openCloseHash = Animator.StringToHash("OpenClose");
         [SerializeField] Animator _animator;
         bool _doorOpen;
+        int audioClipIndex = 0;
 
 
         void Awake()
@@ -21,7 +22,7 @@ namespace MidtermTuringTest
         void OnTriggerEnter(Collider other)
         {
             if (_doorOpen || !other.CompareTag("Player")) return;
-
+            AudioManager.instance.PlaySFX(audioClipIndex);
             _doorOpen = true;
             _animator.SetBool("TriggerPressed", true);
             _animator.SetFloat("Speed", 1f);

@@ -11,6 +11,7 @@ namespace MidtermTuringTest
         [SerializeField] Transform attachTransform;
 
         //private variables
+        int audioClipIndex = 1;
         bool _isPicked = false;
         RaycastHit _raycastHit;
         IPickAble _iPickable;
@@ -41,6 +42,7 @@ namespace MidtermTuringTest
             }
             if (PlayerInput.instance.activatePressed && _isPicked && _iPickable != null)
             {
+                AudioManager.instance.PlaySFX(audioClipIndex);
                 Debug.Log("Dropping object");
                 _iPickable.OnDropped();
                 _isPicked = false;

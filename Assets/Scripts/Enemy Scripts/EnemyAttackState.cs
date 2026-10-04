@@ -14,6 +14,9 @@ namespace MidtermTuringTest
         public override void OnStateEntered()
         {
             Debug.Log("Enemy has entered Attack State");
+            _controller.nextAttackTime = Time.time +  0.5f;
+
+
         }
         public override void OnStateUpdate()
         {
@@ -28,35 +31,42 @@ namespace MidtermTuringTest
             if (distance > _controller.attackRange)
             {
                 _controller.ChangeState(new EnemyFollowState(_controller));
+                return;
             }
-            if (_controller.canAttack)
+
+            if (_controller.canAttack && Time.time >= _controller.nextAttackTime)
+            {   
+                _controller.nextAttackTime = Time.time + _controller.coolDown;
+                Shoot();
+            }
+
+
+        }
+
+        void Shoot()
+        {
+            //get pooled bullet from object pool
+            PooledObject pooledBullet = ObjectPool.instance.GetPooledObject();
+
+            if (pooledBullet != null)
             {
-                //get pooled bullet from object pool
-                PooledObject pooledBullet = ObjectPool.instance.GetPooledObject();
+                //Activate the pooled bullet
+                pooledBullet.gameObject.SetActive(true);
 
-                if (pooledBullet != null)
-                {
-                    //Activate the pooled bullet
-                    pooledBullet.gameObject.SetActive(true);
+                //get pooled object projectile script and initialize
+                ProjectileScript projectileScript = pooledBullet.GetComponent<ProjectileScript>();
+                projectileScript.Initialize(_controller.gameObject.tag);
 
-                    //get pooled object projectile script and initialize
-                    ProjectileScript projectileScript = pooledBullet.GetComponent<ProjectileScript>();
-                    projectileScript.Initialize(_controller.gameObject.tag);
+                //Get rigidbody and set position of the bullet
+                Rigidbody bullet = pooledBullet.GetComponent<Rigidbody>();
+                bullet.transform.position = _controller.projectileSpawnReference.transform.position;
+                bullet.transform.rotation = _controller.transform.rotation;
 
-                    //Get rigidbody and set position of the bullet
-                    Rigidbody bullet = pooledBullet.GetComponent<Rigidbody>();
-                    bullet.transform.position = _controller.projectileSpawnReference.transform.position;
-                    bullet.transform.rotation =  _controller.transform.rotation;
+                //Apply force to bullet
+                bullet.linearVelocity = _controller.transform.forward * 10f;
 
-                    //Apply force to bullet
-                    bullet.linearVelocity = _controller.transform.forward * 10f;
-
-                    //Recycle bullet into pool
-                    ObjectPool.instance.DestroyPooledObject(pooledBullet, 4f);
-
-                }
-
-
+                //Recycle bullet into pool
+                ObjectPool.instance.DestroyPooledObject(pooledBullet, 2f);
             }
 
 

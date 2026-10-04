@@ -1,5 +1,7 @@
 
+using System;
 using UnityEngine;
+using UnityEngine.Audio;
 
 namespace MidtermTuringTest
 {
@@ -7,9 +9,10 @@ namespace MidtermTuringTest
     {
        [SerializeField] AudioClip introClip;
        [SerializeField] AudioSource audioSource;
-
+      
         public static AudioManager instance;
 
+        [SerializeField] AudioClip[] audioClips;
 
 
         void Awake()
@@ -27,6 +30,16 @@ namespace MidtermTuringTest
         public void PlayClip()
         {
            audioSource.PlayOneShot(introClip);
+        }
+
+        public void PlaySFX(int index)
+        {
+            audioSource.PlayOneShot(audioClips[index]);
+        }
+
+        public void PlayerChangeHealth()
+        {
+            PlaySFX(2);
         }
     }
 }

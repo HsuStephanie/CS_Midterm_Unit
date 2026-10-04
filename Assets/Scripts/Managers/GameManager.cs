@@ -37,8 +37,8 @@ namespace MidtermTuringTest
         // [SerializeField] PlayableDirector level1Director;
 
         [Header("UI Panels")]
-        [SerializeField] GameObject gameOverPanel;
-        [SerializeField] GameObject pausePanel;
+        [SerializeField] UIManager uIManager;
+       
 
         [Header("Level Managers")]
         public List<LevelManager>levels = new List<LevelManager>();
@@ -73,14 +73,14 @@ namespace MidtermTuringTest
                 if (currentGameState == GameState.GamePaused)
                 {
                     ChangeGameState(GameState.GamePlaying);
-                    pausePanel.SetActive(false);
+                    uIManager.ShowGamePause();
 
                 }
 
                 else if (currentGameState == GameState.GamePlaying)
                 {
                     ChangeGameState(GameState.GamePaused);
-                    pausePanel.SetActive(true);
+                    
                 }
             }
 
@@ -118,6 +118,7 @@ namespace MidtermTuringTest
                 case GameState.GamePlaying:
                     OnGamePlaying();
                     break;
+                
             }
         }
 
@@ -159,6 +160,8 @@ namespace MidtermTuringTest
         void OnGameEnd()
         {
             Debug.Log("Game End State");
+            uIManager.ShowGameComplete();
+            Time.timeScale = 0f;
             //calculating final scores
             //determing if player won, lost 
             //figuring out what scene to go to next
@@ -167,7 +170,7 @@ namespace MidtermTuringTest
         void OnGameOver()
         {
             Debug.Log("GameOver State");
-            gameOverPanel.SetActive(true);
+            uIManager.ShowGameOver();
             Time.timeScale = 0f;
             //handles logic when player dies
 
@@ -196,6 +199,7 @@ namespace MidtermTuringTest
 
         {
             Debug.Log("Game paused State");
+            uIManager.ShowGamePause();
             Time.timeScale = 0f;
 
 

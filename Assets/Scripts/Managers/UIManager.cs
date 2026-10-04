@@ -1,4 +1,5 @@
 using TMPro;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,6 +9,10 @@ namespace MidtermTuringTest
     {
         [SerializeField] TextMeshProUGUI healthDisplay;
         [SerializeField] GameObject gameOverPanel;
+
+        [SerializeField] GameObject gameEndScreen;
+         [SerializeField] GameObject pausePanel;
+
         [SerializeField] Image playerPointer;
 
         [SerializeField] HealthScript healthScript;
@@ -31,6 +36,23 @@ namespace MidtermTuringTest
         {
             gameOverPanel.SetActive(true);
             playerPointer.gameObject.SetActive(false);
+
+        }
+        public void ShowGameComplete()
+        {
+            gameEndScreen.SetActive(true);
+            playerPointer.gameObject.SetActive(false);
+        }
+        public void ShowGamePause()
+        {
+            
+            if (pausePanel.activeInHierarchy == true)
+            {
+                pausePanel.SetActive(false);
+            }
+            else pausePanel.SetActive(true);
+            
+
 
         }
     }

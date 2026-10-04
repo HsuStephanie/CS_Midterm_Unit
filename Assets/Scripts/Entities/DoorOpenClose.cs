@@ -9,6 +9,8 @@ namespace MidtermTuringTest
         [SerializeField] BlockDetection[] blockDetectors;
         [SerializeField] Renderer[] UnlockLights;
 
+        int audioClipIndex = 0;
+
         Animator _animator;
         bool[] unlocks;
 
@@ -68,6 +70,8 @@ namespace MidtermTuringTest
 
             if (ShouldBeOpen == doorOpen) return;
             doorOpen = ShouldBeOpen;
+
+            AudioManager.instance.PlaySFX(0);
 
             float t = Mathf.Clamp01(_animator.GetCurrentAnimatorStateInfo(0).normalizedTime);
             _animator.Play("OpenClose", 0, t);
