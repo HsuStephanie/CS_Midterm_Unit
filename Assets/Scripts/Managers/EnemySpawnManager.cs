@@ -1,4 +1,7 @@
+using System;
 using UnityEngine;
+using System.Collections.Generic;
+
 
 namespace MidtermTuringTest
 {
@@ -6,13 +9,21 @@ namespace MidtermTuringTest
     {
         [SerializeField] Transform[] spawnPoints;
         [SerializeField] GameObject enemyPrefab;
-        
-       public void SpawnEnemies()
+
+        public event Action<GameObject> EnemySpawned;
+         readonly List<GameObject> spawnedEnemies = new List<GameObject>();
+        public IReadOnlyList<GameObject> SpawnedEnemies => spawnedEnemies;
+
+        public void SpawnEnemies()
         {
+           
             foreach (Transform spawnPoint in spawnPoints)
             {
-                Instantiate(enemyPrefab, spawnPoint.transform);
+                GameObject enemy = Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation, transform);
+                spawnedEnemies.Add(enemy);
+                EnemySpawned?.Invoke(enemy);
             }
+         
         }
        
 

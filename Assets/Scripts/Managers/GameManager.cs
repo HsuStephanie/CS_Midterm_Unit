@@ -185,8 +185,9 @@ namespace MidtermTuringTest
         void OnLevelEnd()
         {
             Debug.Log("Level end State");
-            currentLevel.LevelEnd();
+            // currentLevel.LevelEnd();
             //when the player finishes a level
+            ChangeStateDelay(GameState.GamePlaying, 0.5f);
 
         }
 

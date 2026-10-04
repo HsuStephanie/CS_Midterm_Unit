@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace MidtermTuringTest
 {
@@ -12,6 +13,9 @@ namespace MidtermTuringTest
         bool[] unlocks;
 
         bool doorOpen = false;
+
+        [Header("Unity Event")]
+        [SerializeField] UnityEvent OnBlockPlaced;
 
         private void Awake()
         {
@@ -45,10 +49,16 @@ namespace MidtermTuringTest
         {
             int index = Array.IndexOf(blockDetectors, blockDetection);
             if (index<0) return;
+            
+            bool wasUnlocked = unlocks[index];
             unlocks[index] = unlocked;
             UnlockLights[index].material.SetColor("_EmissionColor",(unlocked?Color.green : Color.red) * 20f);
            
             UpdateDoor();
+            if (unlocked && !wasUnlocked)
+            {
+                OnBlockPlaced?.Invoke();
+            }
         
         }
 

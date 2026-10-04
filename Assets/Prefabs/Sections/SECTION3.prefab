@@ -31,6 +31,7 @@ Transform:
   m_Children:
   - {fileID: 8953769203399758098}
   - {fileID: 6757857646508723404}
+  - {fileID: 4479909465473164217}
   m_Father: {fileID: 7807920294802773684}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &9143293927864167565
@@ -67,7 +68,6 @@ Transform:
   - {fileID: 2434097025454886288}
   - {fileID: 7661557492004680146}
   - {fileID: 9203502000127351166}
-  - {fileID: 4479909465473164217}
   - {fileID: 2720030637167169924}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -139,7 +139,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 7807920294802773684}
+    m_TransformParent: {fileID: 9203502000127351166}
     m_Modifications:
     - target: {fileID: 1842183760618380889, guid: 869e053b55ba44b9bb2fc78116680db9, type: 3}
       propertyPath: m_Name
@@ -155,15 +155,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3412749828551605499, guid: 869e053b55ba44b9bb2fc78116680db9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.837723
+      value: -7.075795
       objectReference: {fileID: 0}
     - target: {fileID: 3412749828551605499, guid: 869e053b55ba44b9bb2fc78116680db9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.13395745
+      value: -0.31999972
       objectReference: {fileID: 0}
     - target: {fileID: 3412749828551605499, guid: 869e053b55ba44b9bb2fc78116680db9, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 18.431604
+      value: 0.872612
       objectReference: {fileID: 0}
     - target: {fileID: 3412749828551605499, guid: 869e053b55ba44b9bb2fc78116680db9, type: 3}
       propertyPath: m_LocalRotation.w
@@ -220,8 +220,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MidtermTuringTest.PlayerSpecificDoorOpen
   _animator: {fileID: 614303704476602231}
-  doorToClose: 1
-  delayTime: 3
 --- !u!4 &4479909465473164217 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3412749828551605499, guid: 869e053b55ba44b9bb2fc78116680db9, type: 3}
