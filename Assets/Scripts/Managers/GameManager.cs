@@ -81,6 +81,7 @@ namespace MidtermTuringTest
                 {
                     ChangeGameState(GameState.GamePaused);
                     
+                    
                 }
             }
 
@@ -199,7 +200,7 @@ namespace MidtermTuringTest
 
         {
             Debug.Log("Game paused State");
-            uIManager.ShowGamePause();
+            
             Time.timeScale = 0f;
 
 
